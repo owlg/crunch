@@ -1,0 +1,4 @@
+		<li><h6>Tables</h6></li>
+		{% for table in tables|sort(true, false, 'tableid') %}
+		<li><a href="javascript:editor.insert('{{ table.tableid }}'); editor.focus()">{{ table.tableid }}</a></li>
+		{% endfor %}

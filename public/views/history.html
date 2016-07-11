@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-md-12 main">
+    
+        <h4 class="page-header">History</h4>
+
+        <div class="table-responsive" id="history">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+queryHistory = [];
+
+if (localStorage.history) {
+	queryHistory = JSON.parse(localStorage.history).reverse();
+}
+
+$('#history').html(nunjucks.render('partials/history-table.html', {history: queryHistory }));
+
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "crunch",
+  "version": "1.0.0",
+  "description": "In-browser SQL queries for CSV data",
+  "main": "server.js",
+  "scripts": {
+    "compile": "nunjucks-precompile public/views > public/views/compiled.js",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ummjackson/crunch.git"
+  },
+  "keywords": [
+    "sql",
+    "csv",
+    "query",
+    "data"
+  ],
+  "author": "@ummjackson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ummjackson/crunch/issues"
+  },
+  "homepage": "https://github.com/ummjackson/crunch#readme",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "gh-pages": "^0.11.0",
+    "nunjucks": "^2.4.2"
+  }
+}
