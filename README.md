@@ -4,6 +4,8 @@
 
 > In-browser SQL querying for CSV files. No backend database required - just import and start querying.
 
+[Use the deployed app here](https://ummjackson.github.io/crunch/#editor)
+
 ### Developing:
 
 ```
@@ -12,7 +14,7 @@ npm run compile
 npm start
 ```
 
-This will pre-compile the Nunjucks templates and start a local development server on port 8080. Navigate to http://localhost:8080/#editor to use the app.
+This will pre-compile the Nunjucks templates and start a local development server on port 8080. Navigate to [http://localhost:8080/#editor](http://localhost:8080/#editor) to use the app.
 
 ### Deploying
 
