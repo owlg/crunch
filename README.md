@@ -4,7 +4,7 @@
 
 > In-browser SQL querying for CSV files. No backend database required - just import and start querying.
 
-[Use the deployed app here](https://ummjackson.github.io/crunch/#editor)
+**[Want to start querying? Use the hosted app @ https://ummjackson.github.io/crunch/#editor](https://ummjackson.github.io/crunch/#editor)**
 
 ### Developing:
 
