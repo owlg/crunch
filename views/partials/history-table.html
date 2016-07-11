@@ -1,0 +1,16 @@
+            <table class="table table-striped table-sm" id="history">
+                <thead>
+                    <tr>
+                        <th>query</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for query in history %}
+                    <tr>
+                        <td>{{ query.body }}</td>
+                        <td>{{ query.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>                
+            </table>
