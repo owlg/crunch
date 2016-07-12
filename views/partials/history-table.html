@@ -9,7 +9,7 @@
                     {% for query in history %}
                     <tr>
                         <td><a href="#history" class="query" data-query="{{ query.body | urlencode }}">{{ query.body }}</a></td>
-                        <td>{{ query.status }}</td>
+                        <td class="{% if query.status == 'Completed' %}text-success{% else %}text-danger{% endif %}">{{ query.status }}</td>
                     </tr>
                     {% endfor %}
             </table>
