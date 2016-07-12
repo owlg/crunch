@@ -49,9 +49,15 @@
         $('#editor').html('-- Example Query \nSHOW TABLES;');
     }
 
+    // Get theme configuration
+    var editorTheme = 'ace/theme/clouds';
+    if(localStorage.editorTheme) {
+        editorTheme = localStorage.editorTheme;
+    }
+
     // Setup ACE editor
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/clouds");
+    editor.setTheme(editorTheme);
     editor.getSession().setMode("ace/mode/sql");
 
    // Slugify
