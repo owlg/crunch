@@ -22,4 +22,10 @@ if (localStorage.history) {
 
 $('#history').html(nunjucks.render('partials/history-table.html', {history: queryHistory }));
 
+$(".query").click(function(event) {
+	event.preventDefault();
+	localStorage.lastQuery = $(this).data("query");
+	window.location.hash = '#editor';
+	});
+
 </script>
