@@ -40,10 +40,9 @@
 
 <script>
 
-    // Populate editor div with last query, if history exists
-    if(localStorage.history) {
-        queryHistory = JSON.parse(localStorage.history);
-        $('#editor').html(queryHistory[queryHistory.length-1].body);
+    // Populate editor div with last query, or sample query if it doesn't exist
+    if(localStorage.lastQuery) {
+        $('#editor').html(decodeURIComponent(localStorage.lastQuery));
     }
 
     else {
@@ -103,6 +102,7 @@
 
         queryHistory.push({ body: query, status: status });
         localStorage.history = JSON.stringify(queryHistory);
+        localStorage.lastQuery = encodeURIComponent(query);
         
      }
 
