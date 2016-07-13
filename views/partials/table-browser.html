@@ -1,0 +1,16 @@
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Table</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for table in tables|sort(true, false, 'tableid') %}
+            <tr>
+                <td><a href="#browser" class="table-name" data-tableid="{{ table.tableid }}">{{ table.tableid }}</a></td>
+                <td><a href="#browser" class="text-danger" data-tableid="{{ table.tableid }}">DROP</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+        </tbody>
