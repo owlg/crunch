@@ -26,6 +26,8 @@
 
         <h4 class="page-header m-t-2">Results <a href="javascript:exportCSV();" id="export"><i class="fa fa-download"></i></a></h4>
 
+        <i class="fa fa-spinner fa-pulse fa-3x hidden running"></i>
+
         <div class="alert alert-danger" id="error" role="alert">
             <strong>Error:</strong> <span></span>
         </div>
@@ -114,6 +116,13 @@
 
      // Run button clicked
      $("#run").click(function() {
+
+        // Show spinner (FA workaround for show() not working)
+        $('.running').css('display', 'inline-block');
+
+        // Empty table
+        $('#results').empty();
+
         query = editor.getValue()
         alasql.promise(query)
         .then(function(res){
@@ -122,6 +131,7 @@
             $('#error').hide();
             $('#results').show();
             $('#export').show();
+            $('.running').hide();
             logHistory(query, "Completed");
         }).catch(function(err){
             console.log('There was an error:', err);
@@ -129,6 +139,7 @@
             $('#results').hide();
             $('#error').show();
             $('#export').hide();
+            $('.running').hide();
             logHistory(query, "Failed");
         });
      });
