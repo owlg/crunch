@@ -24,7 +24,7 @@
         <div id="editor"></div>
         <button type="button" class="btn btn-primary m-t-1" id="run">Run Query</button>
 
-        <h4 class="page-header m-t-2">Results <a href="javascript:exportCSV();" id="export"><i class="fa fa-download"></i></a></h4>
+        <h4 class="page-header m-t-2 hidden results-header">Results <a href="javascript:exportCSV();" id="export"><i class="fa fa-download"></i></a></h4>
 
         <i class="fa fa-spinner fa-pulse fa-3x hidden running"></i>
 
@@ -125,8 +125,9 @@
      // Run button clicked
      $("#run").click(function() {
 
-        // Show spinner (FA workaround for show() not working)
+        // Show spinner (FA workaround for show() not working) & results header (hidden first time)
         $('.running').css('display', 'inline-block');
+        $('.results-header').show();
 
         // Empty table
         $('#results').empty();
