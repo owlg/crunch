@@ -42,6 +42,9 @@ $('#browser').html(nunjucks.render('partials/table-browser.html', {tables: alasq
 $(".table-name").click(function(event) {
 	event.preventDefault();
 
+	// Pop modal
+	$('#table-detail').modal('show');
+
 	// Get table ID
 	tableid = $(this).data("tableid");
 
@@ -59,9 +62,6 @@ $(".table-name").click(function(event) {
 		$('#table-sample thead th').each(function() {
 		    $('#table-columns').append('<li>' + $(this).text() + '</li>');
 		});
-
-		// Pop modal
-		$('#table-detail').modal('show');
 
     }).catch(function(err){
         console.log('There was an error:', err);
