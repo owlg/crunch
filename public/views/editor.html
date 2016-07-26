@@ -102,8 +102,14 @@
      // Log query history
      function logHistory(query, status) {
         
+        // Get history setting
+        var historyLimit = 50;
+        if(localStorage.historyLimit) {
+            historyLimit = localStorage.historyLimit;
+        }
+
         if (localStorage.history) {
-            queryHistory = JSON.parse(localStorage.history);
+            queryHistory = JSON.parse(localStorage.history).slice(-Math.abs(historyLimit - 1));
         }
 
         else {
