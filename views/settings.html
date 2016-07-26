@@ -3,8 +3,8 @@
     <div class="col-md-6 main">
     
         <h4 class="page-header">Settings</h4>
-        <h6>Editor Theme</h6>
-		<select id="theme" size="1">
+        <h6 class="m-t-2">Editor Theme</h6>
+		<select id="theme" class="form-control" size="1">
 		    <optgroup label="Bright">
 		        <option value="ace/theme/chrome">Chrome</option>
 		        <option value="ace/theme/clouds">Clouds</option>
@@ -45,7 +45,10 @@
 		    </optgroup>
 		</select>
 
-		<p class="text-muted m-t-2"><small>Settings are automatically saved</small></p>
+		<h6 class="m-t-2">History Limit (# of queries)</h6>
+		 <input type="number" id="historylimit" class="form-control" min="0" max="100" step="10" value="50">
+
+		<p class="text-muted m-t-2"><small>Settings are saved automatically</small></p>
 
 		</div>
 
@@ -80,11 +83,17 @@ LIMIT 10</div>
     editorPreview.getSession().setMode("ace/mode/sql");
     editorPreview.setReadOnly(true);
 
-    // On change preview + save
+    // On theme change preview + save
     $('#theme').on('change', function() {
 	  editorTheme = $(this).val();
 	  localStorage.editorTheme = editorTheme;
 	  editorPreview.setTheme(editorTheme);
+	});
+
+    // On limit change, save
+    $('#historylimit').on('change', function() {
+	  limit = $(this).val();
+	  localStorage.historyLimit = limit;
 	});
 
 
