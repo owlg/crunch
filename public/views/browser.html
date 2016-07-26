@@ -37,8 +37,10 @@
 
 <script>
 
+// Render list of tables
 $('#browser').html(nunjucks.render('partials/table-browser.html', {tables: alasql('SHOW TABLES;')}));
 
+// View table
 $(".table-name").click(function(event) {
 	event.preventDefault();
 
@@ -68,5 +70,25 @@ $(".table-name").click(function(event) {
     });
 
 	});
+
+// Drop table
+$(".drop-table").click(function(event) {
+	event.preventDefault();
+
+	// Get table ID
+	tableid = $(this).data("tableid");
+
+	// Actually drop table
+    alasql.promise('DROP TABLE ' + tableid + ';')
+    .then(function(res){
+    	// Re-render page
+    	$('#content').html(nunjucks.render('browser.html')); 
+
+    }).catch(function(err){
+        console.log('There was an error:', err);
+    });
+
+
+	});	
 
 </script>
