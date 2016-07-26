@@ -37,10 +37,15 @@
 
 <script>
 
+// Render list of tables
 $('#browser').html(nunjucks.render('partials/table-browser.html', {tables: alasql('SHOW TABLES;')}));
 
+// View table
 $(".table-name").click(function(event) {
 	event.preventDefault();
+
+	// Pop modal
+	$('#table-detail').modal('show');
 
 	// Get table ID
 	tableid = $(this).data("tableid");
@@ -60,13 +65,30 @@ $(".table-name").click(function(event) {
 		    $('#table-columns').append('<li>' + $(this).text() + '</li>');
 		});
 
-		// Pop modal
-		$('#table-detail').modal('show');
-
     }).catch(function(err){
         console.log('There was an error:', err);
     });
 
 	});
+
+// Drop table
+$(".drop-table").click(function(event) {
+	event.preventDefault();
+
+	// Get table ID
+	tableid = $(this).data("tableid");
+
+	// Actually drop table
+    alasql.promise('DROP TABLE ' + tableid + ';')
+    .then(function(res){
+    	// Re-render page
+    	$('#content').html(nunjucks.render('browser.html')); 
+
+    }).catch(function(err){
+        console.log('There was an error:', err);
+    });
+
+
+	});	
 
 </script>

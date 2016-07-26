@@ -9,7 +9,7 @@
             {% for table in tables|sort(true, false, 'tableid') %}
             <tr>
                 <td><a href="#browser" class="table-name" data-tableid="{{ table.tableid }}">{{ table.tableid }}</a></td>
-                <td><a href="#browser" class="text-danger" data-tableid="{{ table.tableid }}">DROP</a></td>
+                <td><a href="#browser" class="drop-table text-danger" data-tableid="{{ table.tableid }}">DROP</a></td>
             </tr>
             {% endfor %}
     </table>
