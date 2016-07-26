@@ -61,13 +61,15 @@
     var editor = ace.edit("editor");
     editor.setTheme(editorTheme);
     editor.getSession().setMode("ace/mode/sql");
+    editor.$blockScrolling = Infinity;
 
    // Slugify
     function convertToSlug(Text)
     {
         return Text
-            .replace(/\W+/g, "")
-            .toLowerCase();
+            .replace(/\.[^/.]+$/, "")
+            .toLowerCase()
+            .replace(/\W+/g, "");
     }
 
     // Refresh table sidebar
